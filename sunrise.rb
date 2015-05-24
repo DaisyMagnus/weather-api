@@ -6,14 +6,10 @@ class SunriseSunset
     end
 
     def sunrise
-       "Sunrise is at #{@astronomy["sun_phase"]["sunrise"]["hour"]}:#{@astronomy["sun_phase"]["sunrise"]["minute"]}"
+       p "Sunrise is at #{@astronomy["sun_phase"]["sunrise"]["hour"]}:#{@astronomy["sun_phase"]["sunrise"]["minute"]}"
     end
 
     def sunset
-       @astronomy["sun_phase"]["sunset"]["hour"]
+         p "Sunset is at #{((@astronomy["sun_phase"]["sunset"]["hour"]).to_i)-12}:#{@astronomy["sun_phase"]["sunset"]["minute"]}"
     end
 end
-
-sun = SunriseSunset.new(33109)
-sun.sunrise
-sun.sunset

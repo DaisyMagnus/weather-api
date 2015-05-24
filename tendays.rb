@@ -8,9 +8,21 @@ class TenDayForecast
   end
 
   def ten
-    @weather["forecast"]["txt_forecast"]["forecastday"][0]["fcttext"]
+    p @weather["forecast"]["txt_forecast"]["forecastday"][0]["fcttext"]
+    p @weather["forecast"]["txt_forecast"]["forecastday"][1]["fcttext"]
+    p @weather["forecast"]["txt_forecast"]["forecastday"][2]["fcttext"]
+    p @weather["forecast"]["txt_forecast"]["forecastday"][3]["fcttext"]
+    p @weather["forecast"]["txt_forecast"]["forecastday"][4]["fcttext"]
+    p @weather["forecast"]["txt_forecast"]["forecastday"][5]["fcttext"]
+    p @weather["forecast"]["txt_forecast"]["forecastday"][6]["fcttext"]
   end
 
 end
 
-day = TenDayForecast.new(27278)
+
+# def ten
+#   forecast = @weather["forecast"]["txt_forecast"]["forecastday"][0]["fcttext"]
+#   puts "Alright. Here's the 10 day forecast."
+#   forecast.each do |f|
+#       puts "Today is #{@weather["forecast"]["txt_forecast"]["forecastday"][0]["fcttext"]}"
+# end

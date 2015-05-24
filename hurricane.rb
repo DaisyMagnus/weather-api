@@ -6,9 +6,6 @@ class Hurricanes
     end
 
     def storm
-       @currenthurricane["response"]["features"]["currenthurricane"] 
+       "There is #{@currenthurricane["response"]["features"]["currenthurricane"]} active storm."
     end
 end
-
-storm = Hurricanes.new
-p storm.storm
