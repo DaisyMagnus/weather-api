@@ -8,13 +8,13 @@ class TenDayForecast
   end
 
   def ten
-    p @weather["forecast"]["txt_forecast"]["forecastday"][0]["fcttext"]
-    p @weather["forecast"]["txt_forecast"]["forecastday"][1]["fcttext"]
-    p @weather["forecast"]["txt_forecast"]["forecastday"][2]["fcttext"]
-    p @weather["forecast"]["txt_forecast"]["forecastday"][3]["fcttext"]
-    p @weather["forecast"]["txt_forecast"]["forecastday"][4]["fcttext"]
-    p @weather["forecast"]["txt_forecast"]["forecastday"][5]["fcttext"]
-    p @weather["forecast"]["txt_forecast"]["forecastday"][6]["fcttext"]
+     @weather["forecast"]["txt_forecast"]["forecastday"][0]["fcttext"]
+     @weather["forecast"]["txt_forecast"]["forecastday"][1]["fcttext"]
+     @weather["forecast"]["txt_forecast"]["forecastday"][2]["fcttext"]
+     @weather["forecast"]["txt_forecast"]["forecastday"][3]["fcttext"]
+     @weather["forecast"]["txt_forecast"]["forecastday"][4]["fcttext"]
+     @weather["forecast"]["txt_forecast"]["forecastday"][5]["fcttext"]
+     @weather["forecast"]["txt_forecast"]["forecastday"][6]["fcttext"]
   end
 
 end

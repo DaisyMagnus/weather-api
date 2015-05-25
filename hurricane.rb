@@ -6,6 +6,6 @@ class Hurricanes
     end
 
     def storm
-       "There is #{@currenthurricane["response"]["features"]["currenthurricane"]} active storm."
+       "There is #{@currenthurricane["response"]["features"]["currenthurricane"]} active storm. But nothing you should be concerned with."
     end
 end

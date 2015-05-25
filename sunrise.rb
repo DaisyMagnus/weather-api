@@ -6,10 +6,10 @@ class SunriseSunset
     end
 
     def sunrise
-       p "Sunrise is at #{@astronomy["sun_phase"]["sunrise"]["hour"]}:#{@astronomy["sun_phase"]["sunrise"]["minute"]}"
+        "Sunrise was at #{@astronomy["sun_phase"]["sunrise"]["hour"]}:#{@astronomy["sun_phase"]["sunrise"]["minute"]}am. Did you see it?"
     end
 
     def sunset
-         p "Sunset is at #{((@astronomy["sun_phase"]["sunset"]["hour"]).to_i)-12}:#{@astronomy["sun_phase"]["sunset"]["minute"]}"
+       "Sunset is at #{((@astronomy["sun_phase"]["sunset"]["hour"]).to_i)-12}:#{@astronomy["sun_phase"]["sunset"]["minute"]}pm. Take a minute and enjoy it"
     end
 end
