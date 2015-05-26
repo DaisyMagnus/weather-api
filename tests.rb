@@ -82,8 +82,9 @@ class WeatherTest < Minitest::Test
     assert clear.day.match(/cloudy/)
   end
 
-  def test_09_assert_current_alert_class_exists
-    thursday = CurrentAlerts.new("IA/Des Moines")
-    p thursday.page["alerts"]["alerts"]["description"].to_i
-  end
+  # def test_09_assert_current_alert_class_exists
+  #   thursday = CurrentAlerts.new("IA/Des Moines")
+  #   p thursday.page["alerts"]["alerts"]["description"].to_i
+  # end
+
 end
