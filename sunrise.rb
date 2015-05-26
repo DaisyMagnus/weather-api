@@ -7,15 +7,17 @@ class SunriseSunset
     @page = get_data
   end
 
-  def activity
+  def sunrise
       hour = @page["sun_phase"]["sunrise"]["hour"]
       minute = @page["sun_phase"]["sunrise"]["minute"]
-      "{hour}:{minute}am"
+      "#{hour}:#{minute}am"
   end
 
-  # def sunset
-  #    "((@page["sun_phase"]["sunset"]["hour"]).to_i)-12}:{@page["sun_phase"]["sunset"]["minute"]}"
-  # end
+  def sunset
+    hour = (@page["sun_phase"]["sunset"]["hour"].to_i) - 12
+    minute = @page["sun_phase"]["sunset"]["minute"]
+    "#{hour}:#{minute}pm"
+  end
 
   private def get_data
     HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/astronomy/q/#{zip}.json")
