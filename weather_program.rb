@@ -16,7 +16,7 @@ input = gets.chomp
 
 x = ConditionsSummary.new(input)
 y = SunriseSunset.new(input)
-# z =TenDayForecast.new(input)
+z =TenDayForecast.new(input)
 # a = Hurricanes.new
 p x.temp
 p y.sunrise
