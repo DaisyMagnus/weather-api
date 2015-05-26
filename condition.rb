@@ -1,13 +1,14 @@
 require 'httparty'
 
 class ConditionsSummary
+  attr_reader :zip, :page
   def initialize(zip)
     @zip = zip
-    @conditions = get_data
+    @page = get_data
   end
 
   def temp
-     "The temperature is now #{@conditions["current_observation"]["temp_f"]}ºF."
+     "The temperature is now #{@page["current_observation"]["temp_f"]}ºF."
   end
 
   private def get_data

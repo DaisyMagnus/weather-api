@@ -1,9 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'byebug'
-# require './condition.rb'
+require './condition.rb'
 # require './hurricane.rb'
-# require './sunrise.rb'
+require './sunrise.rb'
 # require './tendays.rb'
 require 'json'
 
@@ -14,30 +14,32 @@ require 'json'
 # end
 
 class ConditionsSummary
-  attr_reader :zip, :temp
-  def initialize(zip)
-    @zip = zip
-    @temp = temp
-  end
-
   private def get_data
     JSON.parse(File.open("conditions.json").read)
   end
 end
 
-# class Sunrise
-#   def initialize(zip)
-#     @zip = zip
-#   end
-#
+class SunriseSunset
+  private def get_data
+    JSON.parse(File.open("sunrise.json").read)
+  end
+end
+
+# class TenDayForecast
 #   private def get_data
-#     JSON.parse(File.open("sunrise.json").read)
+#     JSON.parse(File.open("conditions.json").read)
 #   end
 # end
 #
-# class TenDayForecast
+# class Hurricanes
 #   private def get_data
-#     JSON.parse(File.open("tendays.json").read)
+#     JSON.parse(File.open("conditions.json").read)
+#   end
+# end
+#
+# class CurrentAlerts
+#   private def get_data
+#     JSON.parse(File.open("conditions.json").read)
 #   end
 # end
 
@@ -69,18 +71,17 @@ class WeatherTest < Minitest::Test
 
   def test_06_assert_temp
     sunshine = ConditionsSummary.new(27278)
-    assert_equal 73.9, sunshine.conditions.temp
+    assert_equal 73.9, sunshine.page["current_observation"]["temp_f"]
   end
-  #
-  # def test_05_assert_sunrise_class_exists
-  #   shine = Sunrise.new(27278)
-  #   assert_equal 6, shine.sunset
-  # end
+
+  def test_05_assert_sunrise_class_exists
+    shine = SunriseSunset.new(27278)
+    assert_equal 27278, shine.zip
+    shine.page["sun_phase"]["sunrise"]["hour"]
+  end
+
+end
 
   # def test_05_assert_ten_day_forecast_class_exists
   #
   # end
-
-
-
-end

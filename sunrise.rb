@@ -1,15 +1,23 @@
 require 'httparty'
 
 class SunriseSunset
-    def initialize(zip)
-      @astronomy = HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/astronomy/q/#{zip}.json")
-    end
+  attr_reader :zip, :page
+  def initialize(zip)
+    @zip = zip
+    @page = get_data
+  end
 
-    def sunrise
-        "Sunrise was at #{@astronomy["sun_phase"]["sunrise"]["hour"]}:#{@astronomy["sun_phase"]["sunrise"]["minute"]}am. Did you see it?"
-    end
+  def activity
+      hour = @page["sun_phase"]["sunrise"]["hour"]
+      minute = @page["sun_phase"]["sunrise"]["minute"]
+      "{hour}:{minute}am"
+  end
 
-    def sunset
-       "Sunset is at #{((@astronomy["sun_phase"]["sunset"]["hour"]).to_i)-12}:#{@astronomy["sun_phase"]["sunset"]["minute"]}pm. Take a minute and enjoy it"
-    end
+  # def sunset
+  #    "((@page["sun_phase"]["sunset"]["hour"]).to_i)-12}:{@page["sun_phase"]["sunset"]["minute"]}"
+  # end
+
+  private def get_data
+    HTTParty.get("http://api.wunderground.com/api/#{ENV["WUNDERGROUND_KEY"]}/astronomy/q/#{zip}.json")
+  end
 end
